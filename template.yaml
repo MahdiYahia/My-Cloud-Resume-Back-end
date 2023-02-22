@@ -1,1 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Cloud Resume CloudFormation template
 
+Globals:
+    #Common to all Lambda functions you create
+    Function:
+      MemorySize: 128
+      Runtime: python3.9
+      Timeout: 5
+ 
+ Resources:
+    www.my_resume_website:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: www.mahdiyahia.com
+    my_resume_website:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: mahdiyahia.com    
+    DynamoDBTable:
+      Type: AWS::DynamoDB::Table
+      Properties: 
+        TableName: counterUpdater
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          AttributeName: "ID"
+          AttributeType: "S"
+         KeySchema:
+          AttributeName: "ID"
+          KeyType: "HASH"
+    ##Lambda and API GW Integrated
+    lambda_function:
+      Type: AWS::Serverless::Function
+      Properties:
+        #filename.functionname
+        Handler: lambda_function.lambda_handler
+
+      #REST API created
+      Events:
+        counterupdater:
+          Type: Api
+          Properties:
+           Path: /counterupdater
+           Method: get

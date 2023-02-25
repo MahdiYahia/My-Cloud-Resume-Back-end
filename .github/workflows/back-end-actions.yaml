@@ -22,6 +22,19 @@ jobs:
        uses: actions/setup-python@v3
        with:
         python-version: "3.9"
+      # Install Python Dependencies & Zip
+     - name: Install Dependencies
+       run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pytest
+          pip install –U pytest
+          pip install 'moto[all]'
+          pip install boto3
+      # Lint python code  
+     - name: Lint python
+       run: |
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
 
      - name: run test script

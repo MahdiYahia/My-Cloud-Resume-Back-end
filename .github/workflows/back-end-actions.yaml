@@ -27,8 +27,8 @@ jobs:
        uses: actions/setup-python@v3
        with:
         python-version: "3.9"
-      # Install Python Dependencies & Zip
-     - name: Install Dependencies and Zip
+      # Install Python Dependencies
+     - name: Install Dependencies
        run: |
           python -m pip install --upgrade pip
           pip install flake8 pytest

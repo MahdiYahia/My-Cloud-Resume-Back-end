@@ -55,7 +55,7 @@ def valid_lambda_response(call_mock_table, intial_data):
 @mock_dynamodb
 def counter_increment(call_mock_table, initial_data):
     call_mock_table(initial_data)
-    before_count = lambda_handler(None, None)
+    before_response = lambda_handler(None, None)
     before_count = int(json.loads(before_response['body'])['visitor_counter'])
 
     after_response = lambda_handler(None, None)

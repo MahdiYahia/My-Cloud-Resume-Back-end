@@ -1,16 +1,6 @@
 name: back-end-actions
 on: push
-jobs:
-  super-lint:
-    name: Lint code base
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+jobs:  
   deploy-lambda:
     name: update lambda function
     runs-on: ubuntu-latest
@@ -28,6 +18,6 @@ jobs:
             role-to-assume: arn:aws:iam::174742863996:role/github_actions_role
             aws-region: us-east-1
  
-     - name: Sync files with AWS CLI
+     - name: run test script
        run: |
-             aws s3 sync . s3://www.mahdiyahia.com  
+                lambda_function_test.py

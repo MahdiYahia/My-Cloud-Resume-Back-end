@@ -10,3 +10,24 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+  deploy-lambda:
+    name: update lambda function
+    runs-on: ubuntu-latest
+    #permissions to interact with GitHub's OIDC Token endpoint.
+    permissions: 
+      id-token: write
+      contents: read
+    steps:
+     - name: Checkout
+      #checks-out the repository under $GITHUB_WORKSPACE, so the workflow can access it
+       uses: actions/checkout@v2
+     - name: Configure AWS credentials
+       uses: aws-actions/configure-aws-credentials@v1
+       with:
+            role-to-assume: arn:aws:iam::174742863996:role/github_actions_role
+            aws-region: us-east-1
+ 
+     - name: Sync files with AWS CLI
+       run: |
+             aws s3 sync . s3://www.mahdiyahia.com  

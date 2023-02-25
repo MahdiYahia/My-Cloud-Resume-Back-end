@@ -27,7 +27,7 @@ jobs:
        run: |
           python -m pip install --upgrade pip
           pip install flake8 pytest
-          pip install –U pytest
+          sudo pip3 install pytest
           pip install 'moto[all]'
           pip install boto3
       # Lint python code  

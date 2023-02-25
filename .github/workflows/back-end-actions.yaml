@@ -1,8 +1,6 @@
 name: back-end-actions
 on: 
  push:
-   branches:
-        - main
    paths:
         - 'CRC-back-end-private/lambda_function.py' 
 jobs:  

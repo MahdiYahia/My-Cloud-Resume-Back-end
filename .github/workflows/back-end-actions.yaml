@@ -15,9 +15,10 @@ jobs:
      - name: Configure AWS credentials
        uses: aws-actions/configure-aws-credentials@v1
        with:
-            role-to-assume: arn:aws:iam::174742863996:role/github_actions_role
+            role-to-assume: ${{secrets.AWS_IAM_GITHUB_ROLE}}
             aws-region: us-east-1
  
      - name: run test script
+       shell: pwsh
        run: |
-                lambda_function_test.py
+        pytest './lambda_function_test.py'

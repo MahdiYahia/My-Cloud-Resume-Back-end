@@ -6,8 +6,8 @@ provider:
   region: us-east-1
 functions:
   theLambda:
-    name: lambda_function
-    handler: lambda.handler
+    name: counterUpdater
+    handler: lambda_handler
     description: lambda-function
     timeout: 5
     memorySize: 128

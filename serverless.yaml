@@ -1,3 +1,4 @@
+service: serverless-lambda-python
 provider:
   name: aws
   runtime: python3.9

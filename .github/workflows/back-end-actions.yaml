@@ -1,5 +1,8 @@
 name: back-end-actions
-on: push
+on: 
+  push:
+    paths: 'lambda_function.py'
+
 jobs:  
   deploy-lambda:
     name: update lambda function

@@ -1,10 +1,5 @@
 name: back-end-actions
-on: 
- push:
-   branches:
-        - main
-   paths:
-        - 'lambda_function.py' 
+on: push
 jobs:  
   deploy-lambda:
     name: update lambda function

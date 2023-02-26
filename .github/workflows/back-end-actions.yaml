@@ -40,3 +40,7 @@ jobs:
        run: python lambda_function_test.py
      - name: serverless deploy
        uses: serverless/github-action@v3.1
+       with:
+        args: deploy
+       env:
+        role-to-assume: ${{secrets.AWS_IAM_GITHUB_ROLE}}

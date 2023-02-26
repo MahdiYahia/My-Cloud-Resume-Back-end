@@ -4,7 +4,7 @@ on:
    branches:
         - main
    paths:
-        - 'CRC-back-end-private/lambda_function.py' 
+        - 'lambda_function.py' 
 jobs:  
   deploy-lambda:
     name: update lambda function
@@ -45,4 +45,4 @@ jobs:
      - name: run the test script
        shell: pwsh
        run: |
-         pytest 'CRC-back-end-private/lambda_function_test.py'
+         pytest 'lambda_function_test.py'

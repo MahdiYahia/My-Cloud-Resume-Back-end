@@ -1,0 +1,12 @@
+provider:
+  name: aws
+  runtime: python3.9
+  region: us-east-1
+functions:
+  theLambda:
+    name: lambda_function
+    handler: lambda.handler
+    description: test-lambda
+    timeout: 5
+    memorySize: 128
+    

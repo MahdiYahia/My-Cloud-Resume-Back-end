@@ -40,4 +40,4 @@ jobs:
      - name: run the test script
        shell: pwsh
        run: |
-         pytest 'lambda_function_test.py'
+         pytest 'CRC-back-end-private/lambda_function_test.py'

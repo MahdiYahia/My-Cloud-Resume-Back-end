@@ -20,7 +20,7 @@ def call_mock_table():
     def dynamodb_mock(initial_data):
         dynamodb = boto3.resource('dynamodb')
         dynamodb_mock_table = dynamodb.create_table(
-            TableName = 'counterUpdater',
+            TableName = 'visitor_count',
             KeySchema = [
                 {
                     'AttributeName': 'ID',
@@ -41,7 +41,7 @@ def call_mock_table():
         return dynamodb
     return mock_dynamodb
 
-os.environ['TABLE_NAME'] = 'counterUpdater'
+os.environ['TABLE_NAME'] = 'visitor_count'
 
 # Testing the receipt of a response
 @mock_dynamodb

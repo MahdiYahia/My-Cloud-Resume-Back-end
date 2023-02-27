@@ -15,4 +15,3 @@ def lambda_handler(event, context):
             'visitor_counter': visitor_counter
     })
     return visitor_counter
-#tested

@@ -11,4 +11,3 @@ functions:
     description: lambda-function
     timeout: 5
     memorySize: 128
-    codeUrl: https://3tyjwwjmjlgwm7vrvw3xaxusoa0mjpbj.lambda-url.us-east-1.on.aws/
